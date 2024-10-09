@@ -1,4 +1,3 @@
-// eslint.config.js
 const { FlatCompat } = require('@eslint/eslintrc')
 const path = require('path')
 
@@ -21,6 +20,7 @@ module.exports = [
     plugins: {
       '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
       prettier: require('eslint-plugin-prettier'),
+      import: require('eslint-plugin-import'),
     },
     rules: {
       'no-console': 'off',
@@ -29,6 +29,17 @@ module.exports = [
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       'prettier/prettier': 'error',
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal'],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
     },
   },
 ]

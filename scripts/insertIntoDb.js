@@ -10,7 +10,7 @@
     host: process.env.DB_HOST ?? 'localhost',
     database: process.env.DB_NAME ?? 'database',
     password: process.env.DB_PASSWORD ?? 'password',
-    port: Number(process.env.DB_PASSWORD) ?? 5432
+    port: Number(process.env.DB_PASSWORD) ?? 5432,
   })
 
   const insertData = async () => {
@@ -23,8 +23,8 @@
         {
           name: 'User',
           query: `INSERT INTO Pulsepoint_User (id, username, email, password) VALUES
-            ('1', 'john_doe', 'john@example.com', 'password123'),
-            ('2', 'jane_smith', 'jane@example.com', 'password456');`,
+            ('1', 'john_doe', 'john@example.com', '$2b$10$4vG2kohcpe7rgc.IABayFe4VwDPnBAuPxOJPKwQP7VMzxiCncYlp6'),
+            ('2', 'jane_smith', 'jane@example.com', '$2b$10$4vG2kohcpe7rgc.IABayFe4VwDPnBAuPxOJPKwQP7VMzxiCncYlp6');`,
         },
 
         // Inserting into Survey_Title table
@@ -87,7 +87,6 @@
             ('2', '2', '2', '2024-10-04');`,
         },
       ]
-
 
       for (const { name, query } of inserts) {
         try {

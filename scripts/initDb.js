@@ -38,7 +38,7 @@
           id varchar PRIMARY KEY,
           file varchar,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-          )`
+          )`,
         },
         {
           name: 'Pulsepoint_User',
@@ -157,9 +157,7 @@
           await client.query(query)
           console.log(chalk.green(`Table ${name} created successfully.`))
         } catch (err) {
-          console.error(
-            chalk.red(`Error creating table ${name}:`, err.message)
-          )
+          console.error(chalk.red(`Error creating table ${name}:`, err.message))
         }
       }
 
